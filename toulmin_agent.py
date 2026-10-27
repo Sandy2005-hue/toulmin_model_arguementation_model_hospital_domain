@@ -11,6 +11,26 @@ from shared_retriever import get_hybrid_retriever
 
 load_dotenv()
 
+# Streamlit Community Cloud stores deployment credentials in st.secrets, not in
+# a repository .env file. Copy the key into the environment before LangChain
+# constructs ChatGoogleGenerativeAI clients. Do not print the key.
+def _load_streamlit_google_key():
+    if os.getenv("GOOGLE_API_KEY"):
+        return
+    try:
+        import streamlit as st
+        secret_key = st.secrets.get("GOOGLE_API_KEY", "")
+        if secret_key:
+            os.environ["GOOGLE_API_KEY"] = str(secret_key).strip()
+            print("[CONFIG] GOOGLE_API_KEY loaded from Streamlit secrets.")
+        else:
+            print("[CONFIG] GOOGLE_API_KEY is not set in environment or Streamlit secrets.")
+    except Exception as exc:
+        # Local scripts/benchmarks may run outside Streamlit and have no secrets file.
+        print(f"[CONFIG] Streamlit secret lookup unavailable ({type(exc).__name__}); using environment/.env if present.")
+
+_load_streamlit_google_key()
+
 # --------------------------------------------------------------------------
 # Settings (all can be overridden in .env)
 #   MODEL_CHAIN     comma-separated model names, tried in order on rate limits
@@ -734,10 +754,39 @@ def run_toulmin_pipeline(patient_claim: str):
         }
 
     adjudication_started = time.perf_counter()
-    result, model_used = invoke_with_fallback(
-        lambda llm: adjudicator_prompt | llm | JsonOutputParser(),
-        {"coverage": coverage_context, "exclusion": exclusion_context, "claim": patient_claim},
-    )
+    try:
+        result, model_used = invoke_with_fallback(
+            lambda llm: adjudicator_prompt | llm | JsonOutputParser(),
+            {"coverage": coverage_context, "exclusion": exclusion_context, "claim": patient_claim},
+        )
+    except Exception as exc:
+        adjudication_elapsed = time.perf_counter() - adjudication_started
+        print(
+            f"[TIMING] Adjudication request failed after {adjudication_elapsed:.2f}s: "
+            f"{type(exc).__name__}: {str(exc)[:400]}"
+        )
+        # Never turn a provider/configuration failure into approval or denial.
+        return {
+            "Grounds": patient_claim,
+            "Warrant": (
+                "Automated adjudication did not complete because the model request failed. "
+                "No approval or denial is issued; a human reviewer must assess the claim."
+            ),
+            "Backing": "",
+            "Rebuttal": "",
+            "Claim": "Needs Human Review",
+            "Guardrail_Status": "Unverified (model request failed; no verdict issued)",
+            "Decision_Override_Reason": (
+                f"Model request failed after {adjudication_elapsed:.1f}s ({type(exc).__name__})."
+            ),
+            "Model_Used": None,
+            "Models_Attempted": list(MODEL_CHAIN),
+            "Rewriter_Model": rewriter_model,
+            "Retrieved_IDs": list(dict.fromkeys(
+                str(d.metadata.get("id")) for d in coverage_docs + exclusion_docs
+                if d.metadata.get("id")
+            )),
+        }
     adjudication_elapsed = time.perf_counter() - adjudication_started
     if DEBUG_RETRIEVAL:
         print(f"[TIMING] Adjudication stage: {adjudication_elapsed:.2f}s")
