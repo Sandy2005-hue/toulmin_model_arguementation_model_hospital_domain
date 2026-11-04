@@ -1,0 +1,6974 @@
+{
+  "metadata": {
+    "created_utc": "2026-11-03T18:48:15.042095+00:00",
+    "claims_file": "data\\claims_gold_corrected.json",
+    "claims_sha256": "ad10ce78f92cda5887053afdbb4c5694eb66d384bee970f43e9f0fba6c4b98c7",
+    "policy_chunks_sha256": "fd37110245265bbf573fb8cd16322307e4a2169038a3b8e084338d9242c95068",
+    "top_k_per_query": 4,
+    "query_plan": [
+      "claim_text",
+      "claim_text + exclusion waiting period"
+    ],
+    "candidate_pool_grid": [
+      10,
+      20,
+      40
+    ],
+    "rrf_constant_grid": [
+      10,
+      30,
+      60,
+      100
+    ],
+    "embedding_model": "all-MiniLM-L6-v2",
+    "dense_required": true,
+    "selection_rule": "max all_gold_pct, then mean_gold_recall_pct, then fewer avg_retrieved_clauses",
+    "note": "Offline retrieval-only tuning; no LLM calls. Dense is a fixed baseline."
+  },
+  "dense_baseline": {
+    "claims": 25,
+    "all_gold_count": 13,
+    "all_gold_pct": 52.0,
+    "any_gold_count": 20,
+    "any_gold_pct": 80.0,
+    "mean_gold_recall_pct": 66.66666666666666,
+    "avg_retrieved_clauses": 5.8,
+    "rows": [
+      {
+        "id": "GC-001",
+        "gold_clause_ids": [
+          "G.2"
+        ],
+        "retrieved_clause_ids": [
+          "C.7",
+          "D.8",
+          "E.2",
+          "C.15",
+          "F.ii.3",
+          "G.3",
+          "C.10"
+        ],
+        "missing_clause_ids": [
+          "G.2"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": false,
+        "gold_recall": 0.0,
+        "retrieved_clause_count": 7
+      },
+      {
+        "id": "GC-002",
+        "gold_clause_ids": [
+          "C.4",
+          "G.2"
+        ],
+        "retrieved_clause_ids": [
+          "E.2",
+          "C.10",
+          "C.1",
+          "D.6",
+          "F.ii.3",
+          "G.2"
+        ],
+        "missing_clause_ids": [
+          "C.4"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": true,
+        "gold_recall": 0.5,
+        "retrieved_clause_count": 6
+      },
+      {
+        "id": "GC-003",
+        "gold_clause_ids": [
+          "G.1"
+        ],
+        "retrieved_clause_ids": [
+          "D.3",
+          "D.1",
+          "G.1",
+          "C.7",
+          "F.ii.5"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 5
+      },
+      {
+        "id": "GC-004",
+        "gold_clause_ids": [
+          "D.1",
+          "G.1"
+        ],
+        "retrieved_clause_ids": [
+          "D.1",
+          "G.1",
+          "E.2",
+          "D.3",
+          "G.2",
+          "G.3"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 6
+      },
+      {
+        "id": "GC-005",
+        "gold_clause_ids": [
+          "G.3"
+        ],
+        "retrieved_clause_ids": [
+          "C.7",
+          "C.12",
+          "G.1",
+          "G.3",
+          "G.2",
+          "B.64"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 6
+      },
+      {
+        "id": "GC-006",
+        "gold_clause_ids": [
+          "C.1",
+          "G.3"
+        ],
+        "retrieved_clause_ids": [
+          "G.3",
+          "C.7",
+          "H.1.15",
+          "C.10",
+          "G.2",
+          "B.64"
+        ],
+        "missing_clause_ids": [
+          "C.1"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": true,
+        "gold_recall": 0.5,
+        "retrieved_clause_count": 6
+      },
+      {
+        "id": "GC-007",
+        "gold_clause_ids": [
+          "D.2",
+          "F.i.15"
+        ],
+        "retrieved_clause_ids": [
+          "D.2",
+          "G.4",
+          "F.i.15",
+          "B.35",
+          "F.i.14"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 5
+      },
+      {
+        "id": "GC-008",
+        "gold_clause_ids": [
+          "F.i.6"
+        ],
+        "retrieved_clause_ids": [
+          "G.3",
+          "B.30",
+          "F.i.6",
+          "C.10",
+          "G.5",
+          "G.2"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 6
+      },
+      {
+        "id": "GC-009",
+        "gold_clause_ids": [
+          "C.1",
+          "F.i.6"
+        ],
+        "retrieved_clause_ids": [
+          "B.30",
+          "G.3",
+          "C.14",
+          "C.7",
+          "G.5"
+        ],
+        "missing_clause_ids": [
+          "C.1",
+          "F.i.6"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": false,
+        "gold_recall": 0.0,
+        "retrieved_clause_count": 5
+      },
+      {
+        "id": "GC-010",
+        "gold_clause_ids": [
+          "F.i.14"
+        ],
+        "retrieved_clause_ids": [
+          "F.i.14",
+          "Annex2.IV",
+          "I.2",
+          "I.3",
+          "G.1",
+          "G.2",
+          "F.i.15"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 7
+      },
+      {
+        "id": "GC-011",
+        "gold_clause_ids": [
+          "C.8"
+        ],
+        "retrieved_clause_ids": [
+          "D.6",
+          "C.8",
+          "I.2",
+          "I.3"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 4
+      },
+      {
+        "id": "GC-012",
+        "gold_clause_ids": [
+          "C.10",
+          "F.ii.3"
+        ],
+        "retrieved_clause_ids": [
+          "E.2",
+          "I.3",
+          "C.1",
+          "F.ii.3",
+          "G.2",
+          "G.3",
+          "G.1"
+        ],
+        "missing_clause_ids": [
+          "C.10"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": true,
+        "gold_recall": 0.5,
+        "retrieved_clause_count": 7
+      },
+      {
+        "id": "GC-013",
+        "gold_clause_ids": [
+          "G.2"
+        ],
+        "retrieved_clause_ids": [
+          "C.7",
+          "I.3",
+          "I.2",
+          "Annex2.I",
+          "G.3",
+          "G.2",
+          "D.1"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 7
+      },
+      {
+        "id": "GC-014",
+        "gold_clause_ids": [
+          "D.2",
+          "G.4"
+        ],
+        "retrieved_clause_ids": [
+          "D.2",
+          "F.i.15",
+          "G.4",
+          "D.5",
+          "G.2"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 5
+      },
+      {
+        "id": "GC-015",
+        "gold_clause_ids": [
+          "F.i.5"
+        ],
+        "retrieved_clause_ids": [
+          "F.i.5",
+          "Annex2.I",
+          "H.1.15",
+          "F.i.12"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 4
+      },
+      {
+        "id": "GC-016",
+        "gold_clause_ids": [
+          "H.1.12"
+        ],
+        "retrieved_clause_ids": [
+          "H.1.12",
+          "C.7",
+          "G.1",
+          "H.1.6",
+          "G.3",
+          "G.2"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 6
+      },
+      {
+        "id": "GC-017",
+        "gold_clause_ids": [
+          "G.2"
+        ],
+        "retrieved_clause_ids": [
+          "C.7",
+          "F.i.3",
+          "C.6",
+          "B.65",
+          "G.3",
+          "G.1",
+          "G.2",
+          "D.1"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 8
+      },
+      {
+        "id": "GC-018",
+        "gold_clause_ids": [
+          "B.48",
+          "C.2"
+        ],
+        "retrieved_clause_ids": [
+          "I.3",
+          "C.2",
+          "I.2",
+          "G.3",
+          "G.2",
+          "G.1"
+        ],
+        "missing_clause_ids": [
+          "B.48"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": true,
+        "gold_recall": 0.5,
+        "retrieved_clause_count": 6
+      },
+      {
+        "id": "GC-019",
+        "gold_clause_ids": [
+          "B.26",
+          "H.1.13"
+        ],
+        "retrieved_clause_ids": [
+          "H.1.13",
+          "G.3",
+          "H.1.15",
+          "C.10",
+          "G.2",
+          "G.1"
+        ],
+        "missing_clause_ids": [
+          "B.26"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": true,
+        "gold_recall": 0.5,
+        "retrieved_clause_count": 6
+      },
+      {
+        "id": "GC-020",
+        "gold_clause_ids": [
+          "C.1",
+          "G.1",
+          "G.3"
+        ],
+        "retrieved_clause_ids": [
+          "I.3",
+          "C.7",
+          "I.2",
+          "G.3",
+          "G.1",
+          "C.10"
+        ],
+        "missing_clause_ids": [
+          "C.1"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": true,
+        "gold_recall": 0.6666666666666666,
+        "retrieved_clause_count": 6
+      },
+      {
+        "id": "GC-021",
+        "gold_clause_ids": [
+          "C.12",
+          "G.2"
+        ],
+        "retrieved_clause_ids": [
+          "C.12",
+          "C.6",
+          "F.i.2",
+          "C.3",
+          "G.5",
+          "G.3"
+        ],
+        "missing_clause_ids": [
+          "G.2"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": true,
+        "gold_recall": 0.5,
+        "retrieved_clause_count": 6
+      },
+      {
+        "id": "GC-022",
+        "gold_clause_ids": [
+          "C.1"
+        ],
+        "retrieved_clause_ids": [
+          "G.3",
+          "C.7",
+          "G.5",
+          "G.2",
+          "C.10"
+        ],
+        "missing_clause_ids": [
+          "C.1"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": false,
+        "gold_recall": 0.0,
+        "retrieved_clause_count": 5
+      },
+      {
+        "id": "GC-023",
+        "gold_clause_ids": [
+          "B.5",
+          "C.5"
+        ],
+        "retrieved_clause_ids": [
+          "B.5",
+          "G.5",
+          "C.5",
+          "B.6"
+        ],
+        "missing_clause_ids": [],
+        "complete_gold_retrieved": true,
+        "any_gold_retrieved": true,
+        "gold_recall": 1.0,
+        "retrieved_clause_count": 4
+      },
+      {
+        "id": "GC-024",
+        "gold_clause_ids": [
+          "C.6"
+        ],
+        "retrieved_clause_ids": [
+          "E.2",
+          "G.2",
+          "G.1",
+          "B.64"
+        ],
+        "missing_clause_ids": [
+          "C.6"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": false,
+        "gold_recall": 0.0,
+        "retrieved_clause_count": 4
+      },
+      {
+        "id": "GC-025",
+        "gold_clause_ids": [
+          "C.6"
+        ],
+        "retrieved_clause_ids": [
+          "C.1",
+          "C.10",
+          "C.14",
+          "C.12",
+          "G.3",
+          "G.2",
+          "G.5",
+          "G.1"
+        ],
+        "missing_clause_ids": [
+          "C.6"
+        ],
+        "complete_gold_retrieved": false,
+        "any_gold_retrieved": false,
+        "gold_recall": 0.0,
+        "retrieved_clause_count": 8
+      }
+    ]
+  },
+  "rrf_results": [
+    {
+      "strategy": "RRF",
+      "candidate_pool": 10,
+      "rrf_const": 10,
+      "claims": 25,
+      "all_gold_count": 14,
+      "all_gold_pct": 56.0,
+      "any_gold_count": 20,
+      "any_gold_pct": 80.0,
+      "mean_gold_recall_pct": 68.66666666666666,
+      "avg_retrieved_clauses": 6.32,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "G.1",
+            "D.8",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "C.10",
+            "B.47",
+            "D.3",
+            "G.2",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "E.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "C.7",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "C.3",
+            "G.3",
+            "C.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "G.4",
+            "D.6",
+            "B.43"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "G.3",
+            "B.30",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "B.30",
+            "D.6",
+            "B.46",
+            "G.3",
+            "G.2",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "C.10",
+            "F.i.14",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "D.6",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "B.46",
+            "E.2",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "H.1.3",
+            "H.1.2",
+            "G.2",
+            "G.3",
+            "G.1",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "F.i.15",
+            "G.2",
+            "G.4"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "Annex2.I",
+            "B.37",
+            "G.2",
+            "H.1.15",
+            "B.60"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "B.17",
+            "G.1",
+            "G.2",
+            "H.1.15"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "B.46",
+            "C.7",
+            "F.i.3",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "C.12",
+            "G.3",
+            "G.2",
+            "D.1"
+          ],
+          "missing_clause_ids": [
+            "B.48"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "H.1.7",
+            "B.26",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "B.3",
+            "I.3",
+            "C.7",
+            "G.3",
+            "G.1",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "B.29",
+            "C.12",
+            "E.2",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "B.37"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "G.5",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "G.1",
+            "D.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "B.22",
+            "C.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 6
+        }
+      ]
+    },
+    {
+      "strategy": "RRF",
+      "candidate_pool": 10,
+      "rrf_const": 30,
+      "claims": 25,
+      "all_gold_count": 14,
+      "all_gold_pct": 56.0,
+      "any_gold_count": 20,
+      "any_gold_pct": 80.0,
+      "mean_gold_recall_pct": 68.66666666666666,
+      "avg_retrieved_clauses": 6.32,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "G.1",
+            "D.8",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "C.10",
+            "B.47",
+            "D.3",
+            "G.2",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "E.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "C.7",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "C.3",
+            "G.3",
+            "C.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "G.4",
+            "D.6",
+            "B.43"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "G.3",
+            "B.30",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "B.30",
+            "D.6",
+            "B.46",
+            "G.3",
+            "G.2",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "C.10",
+            "F.i.14",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "D.6",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "B.46",
+            "E.2",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "H.1.3",
+            "H.1.2",
+            "G.2",
+            "G.3",
+            "G.1",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "F.i.15",
+            "G.2",
+            "G.4"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "Annex2.I",
+            "B.37",
+            "G.2",
+            "H.1.15",
+            "B.60"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "B.17",
+            "G.1",
+            "G.2",
+            "H.1.15"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "B.46",
+            "C.7",
+            "F.i.3",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "C.12",
+            "G.3",
+            "G.2",
+            "D.1"
+          ],
+          "missing_clause_ids": [
+            "B.48"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "H.1.7",
+            "B.26",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "B.3",
+            "I.3",
+            "C.7",
+            "G.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "B.29",
+            "C.12",
+            "E.2",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "B.37"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "G.5",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "G.1",
+            "D.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "B.22",
+            "C.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 6
+        }
+      ]
+    },
+    {
+      "strategy": "RRF",
+      "candidate_pool": 10,
+      "rrf_const": 60,
+      "claims": 25,
+      "all_gold_count": 14,
+      "all_gold_pct": 56.0,
+      "any_gold_count": 20,
+      "any_gold_pct": 80.0,
+      "mean_gold_recall_pct": 68.66666666666666,
+      "avg_retrieved_clauses": 6.32,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "G.1",
+            "D.8",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "C.10",
+            "B.47",
+            "D.3",
+            "G.2",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "E.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "C.7",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "C.3",
+            "G.3",
+            "C.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "G.4",
+            "D.6",
+            "B.43"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "G.3",
+            "B.30",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "B.30",
+            "D.6",
+            "B.46",
+            "G.3",
+            "G.2",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "C.10",
+            "F.i.14",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "D.6",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "B.46",
+            "E.2",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "H.1.3",
+            "H.1.2",
+            "G.2",
+            "G.3",
+            "G.1",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "F.i.15",
+            "G.2",
+            "G.4"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "Annex2.I",
+            "B.37",
+            "G.2",
+            "H.1.15",
+            "B.60"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "B.17",
+            "G.1",
+            "G.2",
+            "H.1.15"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "B.46",
+            "C.7",
+            "F.i.3",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "C.12",
+            "G.3",
+            "G.2",
+            "D.1"
+          ],
+          "missing_clause_ids": [
+            "B.48"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "H.1.7",
+            "B.26",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "B.3",
+            "I.3",
+            "C.7",
+            "G.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "B.29",
+            "C.12",
+            "E.2",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "B.37"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "G.5",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "G.1",
+            "D.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "B.22",
+            "C.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 6
+        }
+      ]
+    },
+    {
+      "strategy": "RRF",
+      "candidate_pool": 10,
+      "rrf_const": 100,
+      "claims": 25,
+      "all_gold_count": 14,
+      "all_gold_pct": 56.0,
+      "any_gold_count": 20,
+      "any_gold_pct": 80.0,
+      "mean_gold_recall_pct": 68.66666666666666,
+      "avg_retrieved_clauses": 6.32,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "G.1",
+            "D.8",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "C.10",
+            "B.47",
+            "D.3",
+            "G.2",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "E.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "C.7",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "C.3",
+            "G.3",
+            "C.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "G.4",
+            "D.6",
+            "B.43"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "G.3",
+            "B.30",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "B.30",
+            "D.6",
+            "B.46",
+            "G.3",
+            "G.2",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "C.10",
+            "F.i.14",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "D.6",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "B.46",
+            "E.2",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "H.1.3",
+            "H.1.2",
+            "G.2",
+            "G.3",
+            "G.1",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "F.i.15",
+            "G.2",
+            "G.4"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "Annex2.I",
+            "B.37",
+            "G.2",
+            "H.1.15",
+            "B.60"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "B.17",
+            "G.1",
+            "G.2",
+            "H.1.15"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "B.46",
+            "C.7",
+            "F.i.3",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "C.12",
+            "G.3",
+            "G.2",
+            "D.1"
+          ],
+          "missing_clause_ids": [
+            "B.48"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "H.1.7",
+            "B.26",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "B.3",
+            "I.3",
+            "C.7",
+            "G.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "B.29",
+            "C.12",
+            "E.2",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "B.37"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "G.5",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "G.1",
+            "D.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "B.22",
+            "C.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 6
+        }
+      ]
+    },
+    {
+      "strategy": "RRF",
+      "candidate_pool": 20,
+      "rrf_const": 10,
+      "claims": 25,
+      "all_gold_count": 13,
+      "all_gold_pct": 52.0,
+      "any_gold_count": 19,
+      "any_gold_pct": 76.0,
+      "mean_gold_recall_pct": 64.66666666666666,
+      "avg_retrieved_clauses": 6.16,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.1",
+            "I.2",
+            "H.1.12",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.47",
+            "C.10",
+            "D.3",
+            "G.2",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "D.3",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "B.47",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "C.10",
+            "H.1.15",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "D.6",
+            "G.4"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 4
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "G.3",
+            "C.12",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "C.10",
+            "B.30",
+            "D.6",
+            "B.46",
+            "G.2",
+            "G.3",
+            "G.5",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "F.i.2",
+            "C.10",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "F.i.14"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "D.5",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "B.46",
+            "E.2",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "H.1.3",
+            "H.1.2",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "G.4",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "H.1.6",
+            "C.10",
+            "G.2",
+            "G.3",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "G.1",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "C.2",
+            "I.2",
+            "B.46",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "B.48",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "C.10",
+            "H.1.7",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "B.26"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "I.3",
+            "C.6",
+            "C.12",
+            "E.2",
+            "G.3",
+            "G.1",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "C.6",
+            "B.29",
+            "C.11",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "B.6",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "C.12",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "D.6",
+            "B.22",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 7
+        }
+      ]
+    },
+    {
+      "strategy": "RRF",
+      "candidate_pool": 20,
+      "rrf_const": 30,
+      "claims": 25,
+      "all_gold_count": 12,
+      "all_gold_pct": 48.0,
+      "any_gold_count": 21,
+      "any_gold_pct": 84.0,
+      "mean_gold_recall_pct": 66.66666666666666,
+      "avg_retrieved_clauses": 6.2,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.1",
+            "I.2",
+            "H.1.12",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.47",
+            "C.10",
+            "G.2",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "D.3",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "C.10",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "C.10",
+            "H.1.15",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "D.6",
+            "I.3",
+            "G.4"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "E.2",
+            "C.12",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "C.10",
+            "C.1",
+            "B.30",
+            "D.6",
+            "G.2",
+            "G.3",
+            "G.5",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "F.i.2",
+            "C.10",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "F.i.14"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "D.5",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "D.6",
+            "C.10",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "C.4",
+            "H.1.3",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "G.4",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "C.10",
+            "H.1.6",
+            "G.2",
+            "G.3",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "G.1",
+            "G.2",
+            "H.1.15"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "C.2",
+            "I.2",
+            "H.1.6",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "C.12",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "B.48"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "H.1.7",
+            "C.10",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "B.26"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "I.3",
+            "C.6",
+            "C.12",
+            "E.2",
+            "G.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "C.12",
+            "D.1",
+            "C.11",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "B.6",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "G.1",
+            "C.12",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "D.6",
+            "B.22",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 7
+        }
+      ]
+    },
+    {
+      "strategy": "RRF",
+      "candidate_pool": 20,
+      "rrf_const": 60,
+      "claims": 25,
+      "all_gold_count": 12,
+      "all_gold_pct": 48.0,
+      "any_gold_count": 21,
+      "any_gold_pct": 84.0,
+      "mean_gold_recall_pct": 66.66666666666666,
+      "avg_retrieved_clauses": 6.28,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.1",
+            "I.2",
+            "H.1.12",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.47",
+            "C.10",
+            "G.2",
+            "D.1",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "D.3",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "C.10",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "C.10",
+            "H.1.15",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "D.6",
+            "I.3",
+            "G.4"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "E.2",
+            "C.12",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "C.10",
+            "C.1",
+            "B.30",
+            "D.6",
+            "G.2",
+            "G.3",
+            "G.5",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "F.i.2",
+            "C.10",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "F.i.14"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "D.5",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "D.6",
+            "C.10",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "C.4",
+            "H.1.3",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "G.4",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "C.10",
+            "H.1.6",
+            "G.2",
+            "G.3",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "H.1.7",
+            "G.1",
+            "G.2",
+            "H.1.15"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "C.2",
+            "I.2",
+            "H.1.6",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "C.12",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "B.48"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "H.1.7",
+            "C.10",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "B.26"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "I.3",
+            "C.6",
+            "C.12",
+            "E.2",
+            "G.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "C.12",
+            "D.1",
+            "C.11",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "E.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "G.1",
+            "C.12",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "D.6",
+            "B.22",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 7
+        }
+      ]
+    },
+    {
+      "strategy": "RRF",
+      "candidate_pool": 20,
+      "rrf_const": 100,
+      "claims": 25,
+      "all_gold_count": 12,
+      "all_gold_pct": 48.0,
+      "any_gold_count": 21,
+      "any_gold_pct": 84.0,
+      "mean_gold_recall_pct": 66.66666666666666,
+      "avg_retrieved_clauses": 6.28,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.1",
+            "I.2",
+            "H.1.12",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "C.10",
+            "B.47",
+            "G.2",
+            "D.1",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "D.3",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "C.10",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "C.10",
+            "H.1.15",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "D.6",
+            "I.3",
+            "G.4"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "E.2",
+            "C.12",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "C.10",
+            "C.1",
+            "B.30",
+            "D.6",
+            "G.2",
+            "G.3",
+            "G.5",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "F.i.2",
+            "C.10",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "F.i.14"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "D.5",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "D.6",
+            "C.10",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "C.4",
+            "H.1.3",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "G.4",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "C.10",
+            "H.1.6",
+            "G.2",
+            "G.3",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "H.1.7",
+            "G.1",
+            "G.2",
+            "H.1.15"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "C.2",
+            "I.2",
+            "H.1.6",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "C.12",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "B.48"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "H.1.7",
+            "C.10",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "B.26"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "I.3",
+            "C.6",
+            "C.12",
+            "E.2",
+            "G.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "C.12",
+            "D.1",
+            "C.11",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "E.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "G.1",
+            "C.12",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "D.6",
+            "B.22",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 7
+        }
+      ]
+    },
+    {
+      "strategy": "RRF",
+      "candidate_pool": 40,
+      "rrf_const": 10,
+      "claims": 25,
+      "all_gold_count": 13,
+      "all_gold_pct": 52.0,
+      "any_gold_count": 19,
+      "any_gold_pct": 76.0,
+      "mean_gold_recall_pct": 64.66666666666666,
+      "avg_retrieved_clauses": 6.24,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.1",
+            "I.2",
+            "E.2",
+            "G.2",
+            "G.3",
+            "F.ii.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.47",
+            "C.10",
+            "D.3",
+            "G.2",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "D.3",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "G.3",
+            "C.10",
+            "H.1.15",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "D.6",
+            "B.43",
+            "G.4"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "B.47",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "B.46",
+            "C.3",
+            "C.6",
+            "C.10",
+            "G.2",
+            "G.3",
+            "G.5",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "F.i.2",
+            "C.10",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "F.i.14"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "C.6",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "E.2",
+            "C.6",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "B.37",
+            "H.1.3",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "G.4",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "H.1.6",
+            "C.10",
+            "G.2",
+            "H.1.15",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "G.1",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "C.2",
+            "C.7",
+            "B.65",
+            "G.3",
+            "G.2",
+            "G.1",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "I.3",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "B.48"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "B.26",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "I.3",
+            "B.3",
+            "C.6",
+            "G.3",
+            "G.1",
+            "G.2",
+            "C.12"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "C.6",
+            "B.29",
+            "B.3",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "B.6",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "C.12",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "C.1",
+            "C.10",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 7
+        }
+      ]
+    },
+    {
+      "strategy": "RRF",
+      "candidate_pool": 40,
+      "rrf_const": 30,
+      "claims": 25,
+      "all_gold_count": 12,
+      "all_gold_pct": 48.0,
+      "any_gold_count": 19,
+      "any_gold_pct": 76.0,
+      "mean_gold_recall_pct": 62.66666666666666,
+      "avg_retrieved_clauses": 6.28,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.1",
+            "I.2",
+            "H.1.12",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.47",
+            "C.10",
+            "D.3",
+            "G.2",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "D.3",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "C.10",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "C.10",
+            "H.1.15",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "D.6",
+            "B.43",
+            "G.4"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "B.47",
+            "E.2",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "C.10",
+            "C.3",
+            "B.46",
+            "G.2",
+            "G.3",
+            "G.5",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "F.i.2",
+            "C.10",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "F.i.14"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "D.5",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "E.2",
+            "C.1",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "B.37",
+            "C.4",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "G.4",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "C.10",
+            "H.1.6",
+            "G.2",
+            "H.1.15",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "G.1",
+            "G.2",
+            "H.1.15"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "C.2",
+            "I.2",
+            "C.7",
+            "G.3",
+            "G.2",
+            "G.1",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "C.12",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "B.48"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "H.1.7",
+            "C.10",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "B.26"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "I.3",
+            "C.6",
+            "C.12",
+            "E.2",
+            "G.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "C.12",
+            "B.29",
+            "D.1",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "B.6",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "G.1",
+            "C.12",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "D.6",
+            "C.1",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 7
+        }
+      ]
+    },
+    {
+      "strategy": "RRF",
+      "candidate_pool": 40,
+      "rrf_const": 60,
+      "claims": 25,
+      "all_gold_count": 12,
+      "all_gold_pct": 48.0,
+      "any_gold_count": 20,
+      "any_gold_pct": 80.0,
+      "mean_gold_recall_pct": 64.66666666666666,
+      "avg_retrieved_clauses": 6.36,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.1",
+            "I.2",
+            "H.1.12",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.47",
+            "C.10",
+            "D.3",
+            "G.2",
+            "D.1",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "D.3",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "C.10",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "C.10",
+            "H.1.15",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "D.6",
+            "B.43",
+            "G.4"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "B.47",
+            "E.2",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "C.10",
+            "C.3",
+            "C.1",
+            "G.2",
+            "G.3",
+            "G.5",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "F.i.2",
+            "C.10",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "F.i.14"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "D.5",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "E.2",
+            "C.1",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "B.37",
+            "C.4",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "G.4",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "C.10",
+            "H.1.6",
+            "G.2",
+            "H.1.15",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "H.1.7",
+            "G.1",
+            "G.2",
+            "H.1.15"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "C.2",
+            "I.2",
+            "B.65",
+            "G.3",
+            "G.2",
+            "G.1",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "C.12",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "B.48"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "H.1.7",
+            "C.10",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "B.26"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "I.3",
+            "C.6",
+            "C.12",
+            "E.2",
+            "G.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "C.12",
+            "B.29",
+            "D.1",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "E.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "G.1",
+            "C.12",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "D.6",
+            "C.12",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 7
+        }
+      ]
+    },
+    {
+      "strategy": "RRF",
+      "candidate_pool": 40,
+      "rrf_const": 100,
+      "claims": 25,
+      "all_gold_count": 12,
+      "all_gold_pct": 48.0,
+      "any_gold_count": 20,
+      "any_gold_pct": 80.0,
+      "mean_gold_recall_pct": 64.66666666666666,
+      "avg_retrieved_clauses": 6.36,
+      "rows": [
+        {
+          "id": "GC-001",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.1",
+            "I.2",
+            "H.1.12",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-002",
+          "gold_clause_ids": [
+            "C.4",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "C.10",
+            "E.1",
+            "C.3",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.4"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-003",
+          "gold_clause_ids": [
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "C.10",
+            "B.47",
+            "D.3",
+            "G.2",
+            "D.1",
+            "B.64"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-004",
+          "gold_clause_ids": [
+            "D.1",
+            "G.1"
+          ],
+          "retrieved_clause_ids": [
+            "D.1",
+            "G.1",
+            "G.2",
+            "D.3",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-005",
+          "gold_clause_ids": [
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.12",
+            "G.1",
+            "C.6",
+            "C.10",
+            "G.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-006",
+          "gold_clause_ids": [
+            "C.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "G.2",
+            "C.10",
+            "H.1.15",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-007",
+          "gold_clause_ids": [
+            "D.2",
+            "F.i.15"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "E.2",
+            "D.6",
+            "B.43",
+            "G.4"
+          ],
+          "missing_clause_ids": [
+            "F.i.15"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-008",
+          "gold_clause_ids": [
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.6",
+            "C.6",
+            "B.47",
+            "E.2",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-009",
+          "gold_clause_ids": [
+            "C.1",
+            "F.i.6"
+          ],
+          "retrieved_clause_ids": [
+            "C.10",
+            "C.6",
+            "C.1",
+            "C.3",
+            "G.2",
+            "G.3",
+            "G.5",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "F.i.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-010",
+          "gold_clause_ids": [
+            "F.i.14"
+          ],
+          "retrieved_clause_ids": [
+            "I.2",
+            "I.3",
+            "F.i.2",
+            "C.10",
+            "G.2",
+            "G.1",
+            "G.3",
+            "G.5"
+          ],
+          "missing_clause_ids": [
+            "F.i.14"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-011",
+          "gold_clause_ids": [
+            "C.8"
+          ],
+          "retrieved_clause_ids": [
+            "C.8",
+            "I.3",
+            "I.2",
+            "D.5",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-012",
+          "gold_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "C.14",
+            "E.2",
+            "C.1",
+            "G.2",
+            "G.1",
+            "G.3",
+            "B.64"
+          ],
+          "missing_clause_ids": [
+            "C.10",
+            "F.ii.3"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-013",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "I.2",
+            "B.37",
+            "C.4",
+            "G.2",
+            "G.3",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-014",
+          "gold_clause_ids": [
+            "D.2",
+            "G.4"
+          ],
+          "retrieved_clause_ids": [
+            "D.2",
+            "G.1",
+            "E.2",
+            "G.4",
+            "G.2"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-015",
+          "gold_clause_ids": [
+            "F.i.5"
+          ],
+          "retrieved_clause_ids": [
+            "F.i.5",
+            "D.8",
+            "C.10",
+            "H.1.6",
+            "G.2",
+            "H.1.15",
+            "G.3"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-016",
+          "gold_clause_ids": [
+            "H.1.12"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.12",
+            "H.1.6",
+            "H.1.10",
+            "H.1.7",
+            "G.1",
+            "G.2",
+            "H.1.15"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-017",
+          "gold_clause_ids": [
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.3",
+            "C.2",
+            "I.2",
+            "B.65",
+            "G.3",
+            "G.2",
+            "G.1",
+            "D.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 8
+        },
+        {
+          "id": "GC-018",
+          "gold_clause_ids": [
+            "B.48",
+            "C.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.2",
+            "B.49",
+            "C.3",
+            "C.12",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "B.48"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 6
+        },
+        {
+          "id": "GC-019",
+          "gold_clause_ids": [
+            "B.26",
+            "H.1.13"
+          ],
+          "retrieved_clause_ids": [
+            "H.1.13",
+            "H.1.15",
+            "H.1.7",
+            "C.10",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "B.26"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-020",
+          "gold_clause_ids": [
+            "C.1",
+            "G.1",
+            "G.3"
+          ],
+          "retrieved_clause_ids": [
+            "I.3",
+            "C.6",
+            "C.12",
+            "E.2",
+            "G.1",
+            "G.3",
+            "G.2"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.6666666666666666,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-021",
+          "gold_clause_ids": [
+            "C.12",
+            "G.2"
+          ],
+          "retrieved_clause_ids": [
+            "C.6",
+            "C.12",
+            "B.29",
+            "D.1",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [],
+          "complete_gold_retrieved": true,
+          "any_gold_retrieved": true,
+          "gold_recall": 1.0,
+          "retrieved_clause_count": 7
+        },
+        {
+          "id": "GC-022",
+          "gold_clause_ids": [
+            "C.1"
+          ],
+          "retrieved_clause_ids": [
+            "C.7",
+            "G.5",
+            "G.2",
+            "G.1",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.1"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-023",
+          "gold_clause_ids": [
+            "B.5",
+            "C.5"
+          ],
+          "retrieved_clause_ids": [
+            "G.1",
+            "B.5",
+            "G.2",
+            "E.2",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.5"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": true,
+          "gold_recall": 0.5,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-024",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "G.2",
+            "G.1",
+            "C.12",
+            "G.3"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 5
+        },
+        {
+          "id": "GC-025",
+          "gold_clause_ids": [
+            "C.6"
+          ],
+          "retrieved_clause_ids": [
+            "E.2",
+            "D.7",
+            "D.6",
+            "C.12",
+            "G.3",
+            "G.2",
+            "G.1"
+          ],
+          "missing_clause_ids": [
+            "C.6"
+          ],
+          "complete_gold_retrieved": false,
+          "any_gold_retrieved": false,
+          "gold_recall": 0.0,
+          "retrieved_clause_count": 7
+        }
+      ]
+    }
+  ],
+  "best_development_configuration": {
+    "candidate_pool": 10,
+    "rrf_const": 10,
+    "all_gold_pct": 56.0,
+    "mean_gold_recall_pct": 68.66666666666666,
+    "avg_retrieved_clauses": 6.32
+  }
+}

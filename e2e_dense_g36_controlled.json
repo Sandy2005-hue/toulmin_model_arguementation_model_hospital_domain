@@ -1,0 +1,542 @@
+{
+  "metadata": {
+    "strategy": "dense",
+    "candidate_pool": 10,
+    "rrf_const": 10,
+    "top_k": 4,
+    "query_rewriting": false,
+    "model_fallback": false,
+    "model_chain": [
+      "gemini-3.6-flash",
+      "gemini-3.5-flash"
+    ],
+    "claims_file": "data\\claims_gold_corrected.json",
+    "claims_sha256": "ad10ce78f92cda5887053afdbb4c5694eb66d384bee970f43e9f0fba6c4b98c7",
+    "policy_chunks_sha256": "fd37110245265bbf573fb8cd16322307e4a2169038a3b8e084338d9242c95068",
+    "toulmin_agent_sha256": "ca548b7cdfe5ad5917019031cd72eeda16818f1bb2d85b0bc207b25a890edd48",
+    "shared_retriever_sha256": "05fc6f9e832bdb868086110ccfad57f4fe348a798df52389f3ca8df62b4f46fe",
+    "require_dense": true
+  },
+  "rows": [
+    {
+      "id": "GC-002",
+      "expected": "Claim Approved",
+      "predicted": "Claim Approved",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "E.2",
+        "C.10",
+        "C.1",
+        "D.5",
+        "C.4",
+        "G.2#1",
+        "G.3"
+      ],
+      "gold_clause_ids": [
+        "C.4",
+        "G.2"
+      ]
+    },
+    {
+      "id": "GC-003",
+      "expected": "Claim Denied",
+      "predicted": "Needs Human Review",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "D.1",
+        "C.7",
+        "D.3",
+        "G.1",
+        "C.1",
+        "G.2#1",
+        "B.64"
+      ],
+      "gold_clause_ids": [
+        "G.1"
+      ]
+    },
+    {
+      "id": "GC-004",
+      "expected": "Claim Approved",
+      "predicted": "Claim Approved",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "D.1",
+        "G.1",
+        "D.3",
+        "E.2",
+        "C.1",
+        "G.2#1",
+        "G.3"
+      ],
+      "gold_clause_ids": [
+        "D.1",
+        "G.1"
+      ]
+    },
+    {
+      "id": "GC-005",
+      "expected": "Claim Denied",
+      "predicted": "Claim Denied",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "C.12",
+        "C.14#2",
+        "C.6",
+        "C.1",
+        "G.3",
+        "B.64",
+        "G.1",
+        "G.2#1"
+      ],
+      "gold_clause_ids": [
+        "G.3"
+      ]
+    },
+    {
+      "id": "GC-006",
+      "expected": "Claim Approved",
+      "predicted": "Claim Approved",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "C.14#2",
+        "G.3",
+        "C.10",
+        "C.1",
+        "B.64",
+        "G.2#1",
+        "G.5"
+      ],
+      "gold_clause_ids": [
+        "G.3",
+        "C.1"
+      ]
+    },
+    {
+      "id": "GC-007",
+      "expected": "Claim Denied",
+      "predicted": "Claim Denied",
+      "citation_check": "Verified (explicit add-on fact matched to policy text)",
+      "gold_clause_retrieved": true,
+      "model": "Deterministic policy-rule check (no Gemini call)",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "D.2",
+        "C.11",
+        "C.15#5",
+        "D.8",
+        "G.4",
+        "F.i.15",
+        "F.i.14"
+      ],
+      "gold_clause_ids": [
+        "F.i.15",
+        "D.2"
+      ]
+    },
+    {
+      "id": "GC-008",
+      "expected": "Claim Denied",
+      "predicted": "Claim Approved",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": false,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "C.10",
+        "G.3",
+        "C.14#2",
+        "C.1",
+        "G.5",
+        "G.2#1",
+        "B.64"
+      ],
+      "gold_clause_ids": [
+        "F.i.6"
+      ]
+    },
+    {
+      "id": "GC-009",
+      "expected": "Claim Approved",
+      "predicted": "Needs Human Review",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "C.14#2",
+        "G.3",
+        "C.10",
+        "C.1",
+        "G.5",
+        "B.64",
+        "G.2#1"
+      ],
+      "gold_clause_ids": [
+        "F.i.6",
+        "C.1"
+      ]
+    },
+    {
+      "id": "GC-010",
+      "expected": "Claim Denied",
+      "predicted": "Claim Denied",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "C.6",
+        "D.2",
+        "F.i.14",
+        "G.2#1",
+        "G.1",
+        "G.5"
+      ],
+      "gold_clause_ids": [
+        "F.i.14"
+      ]
+    },
+    {
+      "id": "GC-011",
+      "expected": "Claim Denied",
+      "predicted": "Claim Denied",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.8",
+        "D.6",
+        "C.11",
+        "C.15#5",
+        "G.5",
+        "G.3"
+      ],
+      "gold_clause_ids": [
+        "C.8"
+      ]
+    },
+    {
+      "id": "GC-012",
+      "expected": "Claim Denied",
+      "predicted": "Needs Human Review",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": false,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "E.2",
+        "C.14#2",
+        "C.1",
+        "G.2#1",
+        "B.64",
+        "G.3",
+        "G.5"
+      ],
+      "gold_clause_ids": [
+        "F.ii.3",
+        "C.10"
+      ]
+    },
+    {
+      "id": "GC-013",
+      "expected": "Needs Human Review",
+      "predicted": "Needs Human Review",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "C.14#2",
+        "C.5",
+        "C.13",
+        "G.3",
+        "G.2#1",
+        "G.5",
+        "D.1"
+      ],
+      "gold_clause_ids": [
+        "G.2"
+      ]
+    },
+    {
+      "id": "GC-014",
+      "expected": "Needs Human Review",
+      "predicted": "Needs Human Review",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "D.2",
+        "F.i.15",
+        "D.1",
+        "G.4",
+        "G.2#1"
+      ],
+      "gold_clause_ids": [
+        "D.2",
+        "G.4"
+      ]
+    },
+    {
+      "id": "GC-015",
+      "expected": "Claim Denied",
+      "predicted": "Claim Denied",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "F.i.5",
+        "C.10",
+        "A",
+        "B.64",
+        "G.3",
+        "G.2#1"
+      ],
+      "gold_clause_ids": [
+        "F.i.5"
+      ]
+    },
+    {
+      "id": "GC-016",
+      "expected": "Claim Approved",
+      "predicted": "Claim Approved",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "H.1.12",
+        "C.7",
+        "C.10",
+        "G.1",
+        "G.2#1",
+        "G.3"
+      ],
+      "gold_clause_ids": [
+        "H.1.12"
+      ]
+    },
+    {
+      "id": "GC-001",
+      "expected": "Claim Denied",
+      "predicted": "Needs Human Review",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "E.2",
+        "D.8",
+        "C.10",
+        "G.2#1",
+        "G.3",
+        "G.1"
+      ],
+      "gold_clause_ids": [
+        "G.2"
+      ]
+    },
+    {
+      "id": "GC-017",
+      "expected": "Needs Human Review",
+      "predicted": "Needs Human Review",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "C.6",
+        "C.10",
+        "C.3",
+        "C.1",
+        "G.3",
+        "G.2#1",
+        "G.1",
+        "G.5"
+      ],
+      "gold_clause_ids": [
+        "G.2"
+      ]
+    },
+    {
+      "id": "GC-018",
+      "expected": "Needs Human Review",
+      "predicted": "Needs Human Review",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.2",
+        "C.3",
+        "C.7",
+        "D.1",
+        "C.1",
+        "G.3",
+        "G.2#1",
+        "G.1"
+      ],
+      "gold_clause_ids": [
+        "C.2",
+        "B.48"
+      ]
+    },
+    {
+      "id": "GC-019",
+      "expected": "Needs Human Review",
+      "predicted": "Needs Human Review",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "H.1.13",
+        "D.1",
+        "G.3",
+        "C.10",
+        "C.1",
+        "G.2#1",
+        "G.5"
+      ],
+      "gold_clause_ids": [
+        "B.26",
+        "H.1.13"
+      ]
+    },
+    {
+      "id": "GC-020",
+      "expected": "Needs Human Review",
+      "predicted": "Needs Human Review",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "C.10",
+        "C.12",
+        "G.3",
+        "C.1",
+        "G.1",
+        "I.3#1",
+        "G.5"
+      ],
+      "gold_clause_ids": [
+        "C.1",
+        "G.1",
+        "G.3"
+      ]
+    },
+    {
+      "id": "GC-021",
+      "expected": "Needs Human Review",
+      "predicted": "Needs Human Review",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.12",
+        "C.7",
+        "C.6",
+        "C.3",
+        "C.1",
+        "G.5",
+        "G.3",
+        "B.64"
+      ],
+      "gold_clause_ids": [
+        "C.12",
+        "G.2"
+      ]
+    },
+    {
+      "id": "GC-022",
+      "expected": "Claim Approved",
+      "predicted": "Claim Approved",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.7",
+        "E.2",
+        "C.10",
+        "C.14#2",
+        "C.1",
+        "G.3",
+        "G.2#1",
+        "G.5",
+        "B.64"
+      ],
+      "gold_clause_ids": [
+        "C.1"
+      ]
+    },
+    {
+      "id": "GC-023",
+      "expected": "Claim Approved",
+      "predicted": "Claim Approved",
+      "citation_check": "Verified",
+      "gold_clause_retrieved": true,
+      "model": "gemini-3.6-flash",
+      "rewriter_model": null,
+      "retrieved_ids": [
+        "C.5",
+        "B.5",
+        "G.5",
+        "B.6",
+        "C.1",
+        "B.64",
+        "G.2#1"
+      ],
+      "gold_clause_ids": [
+        "C.5",
+        "B.5"
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "id": "GC-024",
+      "attempts": 3,
+      "reason": "Model request failed after 0.6s (GoogleRateLimitError).",
+      "recorded_utc": "2026-11-03T20:12:36.135706+00:00"
+    },
+    {
+      "id": "GC-025",
+      "attempts": 3,
+      "reason": "Model request failed after 0.6s (GoogleRateLimitError).",
+      "recorded_utc": "2026-11-03T20:14:46.511744+00:00"
+    }
+  ]
+}

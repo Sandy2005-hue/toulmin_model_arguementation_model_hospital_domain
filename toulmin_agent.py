@@ -55,6 +55,15 @@ USE_REWRITER = os.getenv("USE_REWRITER", "0") == "1"
 # Enable terminal diagnostics by default. Set DEBUG_RETRIEVAL=0 in .env to silence them.
 DEBUG_RETRIEVAL = os.getenv("DEBUG_RETRIEVAL", "1").strip().lower() not in {"0", "false", "no", "off"}
 
+# Set SHOW_TIMING=0 in .env to suppress only [TIMING] console messages.
+# Timing measurements remain available internally for pipeline logic/metadata.
+SHOW_TIMING = os.getenv("SHOW_TIMING", "0").strip().lower() in {"1", "true", "yes", "on"}
+
+def _timing_log(message: str) -> None:
+    """Print timing diagnostics only when SHOW_TIMING is enabled."""
+    if SHOW_TIMING:
+        print(message)
+
 print(
     "[CONFIG] model_priority=" + " -> ".join(MODEL_CHAIN)
     + f" | timeout_per_request={GEMINI_REQUEST_TIMEOUT:g}s"
@@ -282,7 +291,7 @@ def is_transient_model_error(e):
     return any(marker in s for marker in markers)
 
 def invoke_with_fallback(build_chain, inputs):
-    """Invoke a chain with visible timings and bounded fallback attempts.
+    """Invoke a chain with optional timing diagnostics and bounded fallback attempts.
 
     Each model gets one LangChain invocation. Provider-side retry behavior is
     limited by GEMINI_MAX_RETRIES where supported by the installed integration.
@@ -304,22 +313,22 @@ def invoke_with_fallback(build_chain, inputs):
     last_error = None
     for pos, name in enumerate(order):
         started = time.perf_counter()
-        print(f"[TIMING] Starting Gemini attempt ({name}); timeout={GEMINI_REQUEST_TIMEOUT:g}s")
+        _timing_log(f"[TIMING] Starting Gemini attempt ({name}); timeout={GEMINI_REQUEST_TIMEOUT:g}s")
         try:
             response = build_chain(get_llm(name)).invoke(inputs)
             elapsed = time.perf_counter() - started
-            print(f"[TIMING] Gemini call succeeded ({name}): {elapsed:.1f}s")
+            _timing_log(f"[TIMING] Gemini call succeeded ({name}): {elapsed:.1f}s")
             return response, name
         except Exception as e:
             elapsed = time.perf_counter() - started
             last_error = e
-            print(f"[TIMING] Gemini call failed ({name}) after {elapsed:.1f}s: {type(e).__name__}: {e}")
+            _timing_log(f"[TIMING] Gemini call failed ({name}) after {elapsed:.1f}s: {type(e).__name__}: {e}")
             transient = is_transient_model_error(e)
             if USE_FALLBACK and transient:
                 _cooldown_until[name] = time.time() + COOLDOWN_SECONDS
                 if pos < len(order) - 1:
                     next_name = order[pos + 1]
-                    print(
+                    _timing_log(
                         f"[TIMING] {name} marked unavailable for {COOLDOWN_SECONDS}s; "
                         f"switching immediately to {next_name}"
                     )
@@ -707,7 +716,7 @@ def run_toulmin_pipeline(patient_claim: str):
         print("[DEBUG] Final coverage IDs:", _ids(coverage_docs))
         print("[DEBUG] Raw exclusion IDs:", _ids(raw_exclusion_docs))
         print("[DEBUG] Final exclusion IDs:", _ids(exclusion_docs))
-        print(f"[TIMING] Retrieval + local clause augmentation: {retrieval_elapsed:.2f}s")
+        _timing_log(f"[TIMING] Retrieval + local clause augmentation: {retrieval_elapsed:.2f}s")
         print("=====================================\n")
 
     # Narrow deterministic check for an explicit, decisive absence of maternity cover.
@@ -722,7 +731,7 @@ def run_toulmin_pipeline(patient_claim: str):
             if doc.metadata.get("id")
         ))
         if DEBUG_RETRIEVAL:
-            print(
+            _timing_log(
                 f"[TIMING] Total pipeline (deterministic maternity rule): "
                 f"{time.perf_counter() - pipeline_started:.2f}s"
             )
@@ -761,7 +770,7 @@ def run_toulmin_pipeline(patient_claim: str):
         )
     except Exception as exc:
         adjudication_elapsed = time.perf_counter() - adjudication_started
-        print(
+        _timing_log(
             f"[TIMING] Adjudication request failed after {adjudication_elapsed:.2f}s: "
             f"{type(exc).__name__}: {str(exc)[:400]}"
         )
@@ -789,7 +798,7 @@ def run_toulmin_pipeline(patient_claim: str):
         }
     adjudication_elapsed = time.perf_counter() - adjudication_started
     if DEBUG_RETRIEVAL:
-        print(f"[TIMING] Adjudication stage: {adjudication_elapsed:.2f}s")
+        _timing_log(f"[TIMING] Adjudication stage: {adjudication_elapsed:.2f}s")
     all_docs = coverage_docs + exclusion_docs
     allowed_verdicts = {"Claim Approved", "Claim Denied", "Needs Human Review"}
     original_verdict = str(result.get("Claim", "")).strip()
@@ -858,7 +867,7 @@ def run_toulmin_pipeline(patient_claim: str):
     result["Rewriter_Model"] = rewriter_model
     result["Retrieved_IDs"] = list(dict.fromkeys(str(d.metadata.get("id")) for d in all_docs))
     if DEBUG_RETRIEVAL:
-        print(f"[TIMING] Total claim pipeline: {time.perf_counter() - pipeline_started:.2f}s")
+        _timing_log(f"[TIMING] Total claim pipeline: {time.perf_counter() - pipeline_started:.2f}s")
     return result
 
 # ==========================================================================
